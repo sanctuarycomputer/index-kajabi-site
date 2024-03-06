@@ -1,0 +1,53 @@
+<h1 class="uppercase text-5xl font-light tracking-wide mb-8">Courses</h1>
+
+{% if products.size > 0 %}
+  {% paginate products by 6 %}
+    {% for product in paginate.collection %}
+
+      <a href="{{ product.url }}" class="block flex pb-4 border-b border-solid border-white">
+        <div class="w-96">
+          {% if product.thumbnail_url %}
+            <img class="rounded" src="{{ product.thumbnail_url }}"/>
+          {% else %}
+            <img class="rounded" src="{{ "placeholder.png" | asset_url }}"/>
+          {% endif %}
+        </div>
+
+        <div class="px-8">
+          {% if product.description != "" %}
+            <p class="sans-serif">
+              {{ product.description | strip_html | truncate: 160 }}
+            </p>
+          {% endif %}
+        </div>
+      </a>
+    {% endfor %}
+
+    {% if paginate.pages > 1 %}
+      {% include "pagination" %}
+    {% endif %}
+  {% endpaginate %}
+{% else %}
+  <h1 class="serif pt-4 cta-text">
+    You have not bought any pre-recorded Index courses.
+  </h1>
+  <h1 class="serif pt-4 cta-text">
+    When you buy pre-recorded courses from our
+    <a class="border border-solid border-white sans-serif uppercase" href="https://www.index-space.org/collections/courses" target="_blank">Store</a>, you will see them here.
+  </h1>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Products",
+    "elements": [
+      {
+        "type": "text",
+        "id": "btn",
+        "label": "Button Text",
+        "default": "Enter"
+      }
+    ]
+  }
+{% endschema %}

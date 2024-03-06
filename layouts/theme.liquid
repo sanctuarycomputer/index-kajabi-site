@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+  {% include "theme_head" %}
+  <body class="h-full bg-black text-white">
+    {% section "header" %}
+    <div class="px-4 pt-8">
+      {{ content_for_layout }}
+    </div>
+    {% include "theme_scripts" %}
+  </body>
+</html>

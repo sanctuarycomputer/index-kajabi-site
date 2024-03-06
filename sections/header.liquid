@@ -1,0 +1,81 @@
+<nav class="bg-black border-b border-solid border-b-white px-4 py-2 flex flex-row items-baseline justify-between">
+  <a href="/">
+    <span id="logo" class="text-white logo text-4xl">Index</span>
+  </a>
+
+  <div class="text-white sans-serif uppercase tracking-wide">
+    {% if current_site_user %}
+      <a href="/library" class="pr-2">
+        Courses
+      </a>
+      <span class="pr-2">
+        {{ "Settings" | member_settings_link }}
+      </span>
+      <span>
+        {{ "Logout" | member_logout_link }}
+      </span>
+    {% else %}
+      <span>
+        {{ "Login" | member_login_link }}
+      </span>
+    {% endif %}
+  </div>
+</nav>
+
+<script>
+  var logoEl = document.getElementById("logo");
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  var ALPHABET = [
+    'a',
+    'b',
+    'c',
+    'f',
+    'g',
+    'h',
+    'j',
+    'k',
+    'l',
+    'm',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'y',
+    'z'
+  ];
+
+  function randomizeLogo(logoEl) {
+    var randomCharIndex = getRandomInt(0, 4);
+    var randomAlphabetIndex = getRandomInt(0, ALPHABET.length - 1);
+    var indexArr = 'index'.split('');
+    indexArr[randomCharIndex] = ALPHABET[randomAlphabetIndex];
+    logoEl.innerHTML = indexArr.join('');
+  }
+
+  function resetLogo(logoEl) {
+    logoEl.innerHTML = 'index';
+  }
+
+  if (logoEl) {
+    logoEl.addEventListener('mouseenter', () => randomizeLogo(logoEl));
+    logoEl.addEventListener('mouseleave', () => resetLogo(logoEl));
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "Header",
+    "elements": []
+  }
+{% endschema %}

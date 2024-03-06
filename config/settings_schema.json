@@ -1,0 +1,28 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Index Kajabi Site",
+    "theme_version": "0.0.1",
+    "theme_author": "Hugh Francis",
+    "theme_documentation_url": "https://developers.mykajabi.com/blog?tag=cornerstone+site",
+    "theme_support_url": "https://github.com/Kajabi/theme-cornerstone-site/issues"
+  },
+  {
+    "name": "Favicon",
+    "elements": [
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon Image",
+        "fit": "crop",
+        "width": 32,
+        "height": 32,
+        "info": "Must be a 32x32 PNG file. Transparency is supported. Please allow some time for favicon to change. Learn how to create your own favicon [here](canva_logos)"
+      }
+    ]
+  }
+]
