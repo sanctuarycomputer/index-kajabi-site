@@ -2,13 +2,25 @@
   This is the online learning platform for Index, a center for peer-led programming and the generous exchange of knowledge and ideas.
 </h1>
 
-<h1 class="serif pt-8 cta-text">
-  After you buy pre-recorded courses from our
-  <a class="border border-solid border-white sans-serif uppercase" href="https://www.index-space.org/collections/courses" target="_blank">Store</a>, you can
-  <a class="border border-solid border-white sans-serif uppercase" href="/login">Login</a>
-  then navigate
-  <a class="border border-solid border-white sans-serif uppercase" href="/library">here</a>
-  to access them, and join our
-  <a class="border border-solid border-white sans-serif uppercase" href="https://discord.com/invite/d9mJAy2AW9" target="_blank">Discord</a>
-  to connect with instructors and other students.
-</h1>
+{% if current_site_user %}
+  <h1 class="serif pt-8 cta-text">
+    After you buy pre-recorded courses from our
+    <a class="border border-solid border-white sans-serif uppercase" href="https://www.index-space.org/collections/courses" target="_blank">Store</a>, you can
+                navigate
+    <a class="border border-solid border-white sans-serif uppercase" href="/library">here</a>
+    to access them, and join our
+    <a class="border border-solid border-white sans-serif uppercase" href="https://discord.com/invite/d9mJAy2AW9" target="_blank">Discord</a>
+    to connect with instructors and other students.
+  </h1>
+{% else %}
+  <h1 class="serif pt-8 cta-text">
+    After you buy pre-recorded courses from our
+    <a class="border border-solid border-white sans-serif uppercase" href="https://www.index-space.org/collections/courses" target="_blank">Store</a>, you can
+    <a class="border border-solid border-white sans-serif uppercase" href="/login">Login</a>
+    then navigate
+    <a class="border border-solid border-white sans-serif uppercase" href="/library">here</a>
+    to access them, and join our
+    <a class="border border-solid border-white sans-serif uppercase" href="https://discord.com/invite/d9mJAy2AW9" target="_blank">Discord</a>
+    to connect with instructors and other students.
+  </h1>
+{% endif %}
