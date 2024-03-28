@@ -15,7 +15,7 @@
 
         <div class="px-8">
           {% if product.description != "" %}
-            <p class="sans-serif">
+            <p class="sans-serif text-xl">
               {{ product.description | strip_html | truncate: 160 }}
             </p>
           {% endif %}
